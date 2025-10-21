@@ -5,7 +5,7 @@ resource "aws_launch_template" "ec2_lt" {
   key_name = "humangov-ec2-key"
   vpc_security_group_ids = [var.lanchonete_security_group_id]
   iam_instance_profile {
-    name = "adm-role"
+    name = "ecs-adm-role"
   }
   tag_specifications {
     resource_type = "instance"
