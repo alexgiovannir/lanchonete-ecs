@@ -4,17 +4,17 @@ variable "lanchonete_security_group_id" {
 }
 
 variable "lanchonete_subnet_public_1_id" {
-  description = "ID do security group"
+  description = "ID subnet 1"
   type        = any
 }
 
 variable "lanchonete_subnet_public_2_id" {
-  description = "ID do security group"
+  description = "ID subnet 2"
   type        = any
 }
 
 variable "lanchonete_vpc_id" {
-  description = "ID do security group"
+  description = "ID vpc"
   type        = any
 }
 
