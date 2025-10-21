@@ -13,5 +13,5 @@ resource "aws_launch_template" "ec2_lt" {
       Name = "ecs_instance"
     }
   }
-  user_data = filebase64("${path.module}/aws_ecs/ecs.sh")
+  user_data = filebase64("${path.module}/ecs.sh")
 }

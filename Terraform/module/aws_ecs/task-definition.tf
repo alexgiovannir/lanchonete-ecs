@@ -7,7 +7,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
     operating_system_family = "LINUX"
     cpu_architecture = "X86_64"
   }
-  container_definitions = jsondecode([{
+  container_definitions = jsonencode([{
     name = "lanchonete-ctr"
     image = "strm/helloworld-htpp"
     cpu = 1024
