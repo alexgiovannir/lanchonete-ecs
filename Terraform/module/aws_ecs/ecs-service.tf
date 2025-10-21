@@ -5,10 +5,10 @@ resource "aws_ecs_service" "ecs_service" {
   desired_count = 2
 
   network_configuration {
-    security_groups = [data.aws_security_group.lanchonete_security_group.id]
+    security_groups = [var.lanchonete_security_group_id]
     subnets = [
-      data.aws_subnet.lanchonete_subnet_public_1,
-      data.aws_subnet.lanchonete_subnet_public_2
+      var.lanchonete_subnet_public_1_id,
+      var.lanchonete_subnet_public_2_id
     ]
   }
 

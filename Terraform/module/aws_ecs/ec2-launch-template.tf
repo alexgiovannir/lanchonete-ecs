@@ -3,7 +3,7 @@ resource "aws_launch_template" "ec2_lt" {
   image_id = "ami-0c45946ade6066f3d"
   instance_type = "t2.micro"
   key_name = "humangov-ec2-key"
-  vpc_security_group_ids = [data.aws_security_group.lanchonete_security_group.id]
+  vpc_security_group_ids = [var.lanchonete_security_group_id]
   iam_instance_profile {
     name = "ecsInstanceRole"
   }

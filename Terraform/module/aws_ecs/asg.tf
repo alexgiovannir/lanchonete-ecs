@@ -1,7 +1,7 @@
 resource "aws_autoscaling_group" "ecs_asg" {
   vpc_zone_identifier = [
-    data.aws_subnet.lanchonete_subnet_public_1,
-    data.aws_subnet.lanchonete_subnet_public_2
+    var.lanchonete_subnet_public_1_id,
+    var.lanchonete_subnet_public_2_id
   ]
   desired_capacity = 2
   max_size = 2

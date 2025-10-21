@@ -10,10 +10,10 @@ resource "aws_lb" "ecs_alb" {
   name = "ecs-alb"
   internal = false
   load_balancer_type = "application"
-  security_groups = [data.aws_security_group.lanchonete_security_group.id]
+  security_groups = [var.lanchonete_security_group_id]
   subnets = [
-    data.aws_subnet.lanchonete_subnet_public_1,
-    data.aws_subnet.lanchonete_subnet_public_2
+    var.lanchonete_subnet_public_1_id,
+    var.lanchonete_subnet_public_2_id
   ]
   tags = {
     Name = "ecs-alb"
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "ecs_tg" {
   port = 80
   protocol = "HTTP"
   target_type = "ip"
-  vpc_id = data.aws_vpc.lanchonete_vpc.id
+  vpc_id = var.lanchonete_vpc_id
 
   health_check {
     path = "/"
