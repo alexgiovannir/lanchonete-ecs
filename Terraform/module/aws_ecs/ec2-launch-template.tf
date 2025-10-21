@@ -1,7 +1,7 @@
 resource "aws_launch_template" "ec2_lt" {
   name_prefix = "ecs-template"
   image_id = "ami-0c45946ade6066f3d"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   vpc_security_group_ids = [var.lanchonete_security_group_id]
   iam_instance_profile {
     name = "ecs-adm-role"
