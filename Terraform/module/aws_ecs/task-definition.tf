@@ -1,7 +1,7 @@
 resource "aws_ecs_task_definition" "ecs_task_definition" {
   family                = "lanchonete-family"
   network_mode = "awsvpc"
-  execution_role_arn = "arn:aws:iam::961624804946:role/adm-role"
+  execution_role_arn = "arn:aws:iam::961624804946:role/ecs-adm-role"
   cpu = 1024
   runtime_platform {
     operating_system_family = "LINUX"
