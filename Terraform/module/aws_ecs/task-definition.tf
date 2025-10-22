@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   }
   container_definitions = jsonencode([{
     name = "lanchonete-ctr"
-    image = "strm/helloworld-htpp"
+    image = "strm/helloworld-http"
     cpu = 1024
     memory = 256
     essencial = true
