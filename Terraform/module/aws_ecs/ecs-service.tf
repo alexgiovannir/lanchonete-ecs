@@ -24,12 +24,13 @@ resource "aws_ecs_service" "ecs_service" {
 
   capacity_provider_strategy {
     capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
+    weight = 100
   }
 
   load_balancer {
     target_group_arn = aws_lb_target_group.ecs_tg.arn
     container_name = "lanchonete-ctr"
-    container_port = 0
+    container_port = 80
   }
 
   depends_on = [
