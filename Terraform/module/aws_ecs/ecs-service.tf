@@ -14,17 +14,16 @@ resource "aws_ecs_service" "ecs_service" {
 
   force_new_deployment = true
 
-  placement_constraints {
-    type = "distinctInstance"
-  }
-
   triggers = {
     redeployment = timestamp()
   }
 
+  launch_type     = "FARGATE" # This is important for the capacity provider strategy to work
+
   capacity_provider_strategy {
-    capacity_provider = aws_ecs_capacity_provider.ecs_capacity_provider.name
-    weight = 100
+    capacity_provider = "FARGATE_SPOT"
+    weight            = 100 # 100% of tasks on Fargate Spot
+    base              = 0
   }
 
   load_balancer {
@@ -32,9 +31,5 @@ resource "aws_ecs_service" "ecs_service" {
     container_name = "lanchonete-ctr"
     container_port = 80
   }
-
-  depends_on = [
-    aws_autoscaling_group.ecs_asg
-  ]
 
 }
