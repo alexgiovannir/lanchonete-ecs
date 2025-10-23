@@ -20,12 +20,6 @@ resource "aws_ecs_service" "ecs_service" {
 
   launch_type     = "FARGATE" # This is important for the capacity provider strategy to work
 
-  capacity_provider_strategy {
-    capacity_provider = "FARGATE_SPOT"
-    weight            = 100 # 100% of tasks on Fargate Spot
-    base              = 0
-  }
-
   load_balancer {
     target_group_arn = aws_lb_target_group.ecs_tg.arn
     container_name = "lanchonete-ctr"
