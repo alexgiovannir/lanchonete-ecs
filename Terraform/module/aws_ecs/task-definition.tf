@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
 
   container_definitions = jsonencode([{
     name = "lanchonete-ctr"
-    image = "strm/helloworld-http"
+    image = "961624804946.dkr.ecr.us-east-1.amazonaws.com/lanchonete-repository:latest"
     essencial = true
     portMappings = [{
       containerPort = 80
