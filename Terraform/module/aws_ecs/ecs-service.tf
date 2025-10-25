@@ -10,6 +10,7 @@ resource "aws_ecs_service" "ecs_service" {
       var.lanchonete_subnet_public_1_id,
       var.lanchonete_subnet_public_2_id
     ]
+    assign_public_ip = true
   }
 
   force_new_deployment = true
