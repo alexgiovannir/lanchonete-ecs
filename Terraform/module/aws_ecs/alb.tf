@@ -26,12 +26,6 @@ resource "aws_lb_target_group" "ecs_tg" {
   protocol = "HTTP"
   target_type = "ip"
   vpc_id = var.lanchonete_vpc_id
-
-  health_check {
-    path = "/"
-    interval = 120
-    timeout = 60
-  }
 }
 
 resource "aws_lb_listener" "ecs_alb_listener" {
